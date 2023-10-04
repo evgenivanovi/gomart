@@ -1,5 +1,7 @@
-package gomart
+package main
+
+import "github.com/evgenivanovi/gomart/internal/boot"
 
 func main() {
-	// TODO
+	boot.Boot()
 }
