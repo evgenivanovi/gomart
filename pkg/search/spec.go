@@ -4,6 +4,10 @@ package search
 
 type Key string
 
+func (k Key) String() string {
+	return string(k)
+}
+
 /* __________________________________________________ */
 
 type Specification interface {

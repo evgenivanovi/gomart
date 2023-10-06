@@ -6,6 +6,10 @@ import slices "github.com/evgenivanovi/gomart/pkg/std/slice"
 
 type OrderOperator string
 
+func (o OrderOperator) String() string {
+	return string(o)
+}
+
 const ASC OrderOperator = "ASC"
 const DESC OrderOperator = "DESC"
 

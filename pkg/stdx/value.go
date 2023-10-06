@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"time"
 
+	"github.com/evgenivanovi/gomart/pkg/std"
 	"github.com/evgenivanovi/gomart/pkg/std/conv"
 	ref "github.com/evgenivanovi/gomart/pkg/std/reflect"
 	"github.com/gookit/goutil/reflects"
@@ -919,6 +920,22 @@ func NewValue(value interface{}) Value {
 		values: nil,
 	}
 
+}
+
+/* __________________________________________________ */
+
+func ValueTypeName(value Value) string {
+	if defaultValue, ok := value.(DefaultValue); ok {
+		if defaultValue.value != nil {
+			return reflect.TypeOf(defaultValue.value).Name()
+		} else if defaultValue.values != nil {
+			return reflect.TypeOf(defaultValue.values[0]).Name()
+		}
+	}
+	if _, ok := value.(NilValue); ok {
+		return std.Nil
+	}
+	return std.Empty
 }
 
 /* __________________________________________________ */

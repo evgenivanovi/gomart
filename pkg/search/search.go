@@ -9,6 +9,10 @@ import (
 
 type SearchOperator string
 
+func (o SearchOperator) String() string {
+	return string(o)
+}
+
 const Equals SearchOperator = "=="
 const NotEquals SearchOperator = "!="
 const GreaterThan SearchOperator = ">"
